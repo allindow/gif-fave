@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   delete '/logout', to: 'sessions#destroy'
   post '/new_favorite/:id', to: 'user/favorites#create'
+  get '/new_favorite/:id', to: 'user/favorites#create'
   delete '/favorite/:id', to: 'user/favorites#destroy'
+  get '/favorite/:id', to: 'user/favorites#destroy'
   get '/user/gifs/by_category'
   get '/user/favorites/by_category'
+  get '/admin/gifs/:id', to: 'admin/gifs#destroy'
+
 
   root 'welcome#index'
 
