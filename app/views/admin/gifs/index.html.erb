@@ -1,0 +1,23 @@
+<br><br>
+<div class="gif-list">
+  <div class="well col-md-9">
+    <h1 id="greeting">All Gifs</h1>
+    <div id="gif_generator">
+      <center>
+        <%= form_for [:admin, @gif] do |f| %>
+          <%= f.label :category %>
+          <%= f.text_field :category %>
+          <%= f.submit "Generate Gif!", class:'btn'%>
+        <% end %>
+      </center>
+    </div>
+    <%= render 'shared/gifs_list' %>
+    <center>
+      <%= form_for [:admin, @gif] do |f| %>
+        <%= f.label :category %>
+        <%= f.text_field :category %>
+        <%= f.submit "Generate Gif!", class:'btn'%>
+      <% end %>
+    </center
+  </div>
+</div>

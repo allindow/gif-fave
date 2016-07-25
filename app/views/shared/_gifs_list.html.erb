@@ -1,0 +1,20 @@
+<div id="all_gifs">
+  <% @gifs.each do |gif| %>
+    <div class="well col-md-12 border">
+    <center>
+      <h3><p>
+        <%= gif.category %>
+      </p></h3>
+      <p>
+        <img src="<%= gif.image_path %>" alt="<%= gif.category %> gif">
+      </p>
+      <p>
+        <%= link_to "Delete", admin_gif_path(gif), method: :delete, class:'btn' if current_admin?%>
+        <%= link_to "Unfavorite", "/favorite/#{gif.id}", method: :delete, class:'btn' if current_regular_user? && gif.users.include?(current_user) %>
+        <%= link_to "Favorite", "/new_favorite/#{gif.id}", method: :post, class:'btn' if current_regular_user? && gif.users.exclude?(current_user) %>
+        <%= facebook_button :facebook=> {:send=> 'true', :url=> "#{gif.image_path}"} if current_user %>
+      </p>
+    </center>
+    </div>
+  <% end %>
+</div>

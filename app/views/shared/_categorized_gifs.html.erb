@@ -1,0 +1,22 @@
+<% @categories.each do |cat, gifs| %>
+  <div class="well col-md-12 border">
+    <h1 id="greeting">
+    <div id="<%= cat %>">
+      <%= cat %>
+    </h1>
+    <center>
+      <% gifs.each do |gif| %>
+        <p>
+          <img src="<%= gif.image_path %>">
+        </p>
+        <p>
+          <%= link_to "Unfavorite", "/favorite/#{gif.id}", method: :delete, class:'btn' if gif.users.include?(current_user)%>
+          <%= link_to "Favorite", "/new_favorite/#{gif.id}", method: :post, class:'btn' if gif.users.exclude?(current_user) %>
+          <%= facebook_button :facebook=> {:send=> 'true', :url=> "#{gif.image_path}"} %>
+        </p>
+      <% end %>
+<% end %>
+    </div>
+    </center>
+  </div>
+</div>

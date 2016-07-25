@@ -1,0 +1,12 @@
+<br>
+<br>
+<div class="gif-list">
+  <div class="well col-md-9">
+    <% if @gifs.empty? %>
+      <h1 id="greeting">You haven't favorited any gifs!</h1>
+    <% else %>
+      <h1 id="greeting">My Faves</h1>
+      <%= render 'shared/gifs_list' %>
+    <% end %>
+  </div>
+</div>

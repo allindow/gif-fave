@@ -1,0 +1,71 @@
+html, body {
+    background: url("/unicorn.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Georgia';
+}
+
+navbar-default{ /* assigning the top bar to the entire navbar div element */
+    text-align: center;
+    box-shadow: inset 0px 6px 0px #777; /* initial gray color to the top bar */
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: white;
+    background-color: #AAA;
+    box-shadow: inset 0px 6px 0px #009ae1; /* switch to a darker color on hover */
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: white;
+    background-color: gray;
+    box-shadow: inset 0px 6px 0px #AAA; /* switch to a lighter color for active element */
+}
+
+ul.nav li a:after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 60%;
+  right: 0;
+  background: black;
+  top: 50%;
+  transform: translate(0, -50%);
+    border-right: 1px solid #84B6D0;
+    border-left: 1px solid #84B6D0;
+
+}
+
+.vertical-center-row {
+  position: fixed;
+  top: 35%;
+  left: 8%;
+  width: 600px;
+  height: 600px;
+}
+
+.gif-list {
+  position: relative;
+  top: 90%;
+  left: 8%;
+  width: 600px;
+  height: 600px;
+}
+
+.btn {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   background-color: #009ae1;
+   color: white;
+}
+
+h1#greeting {
+  font-family: 'Lobster';
+  text-align: center;
+}
