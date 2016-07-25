@@ -1,5 +1,12 @@
+<center>
+  <% @categories.each do |cat, gifs| %>
+    <justify>
+      <a href="#<%= cat %>"><%= cat %></a> |
+  <% end %>
+</center>
 <% @categories.each do |cat, gifs| %>
   <div class="well col-md-12 border">
+    <a name="<%= cat %>"></a>
     <h1 id="greeting">
     <div id="<%= cat %>">
       <%= cat %>
