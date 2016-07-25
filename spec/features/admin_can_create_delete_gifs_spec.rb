@@ -9,8 +9,7 @@ describe "Admin can create and delete a gif" do
     within 'form' do
       click_on "Login"
     end
-
-    click_on "Manage Gifs"
+    click_on "Manage GIFs"
     assert_equal admin_gifs_path, current_path
 
     within("#gif_generator") do
@@ -45,7 +44,7 @@ describe "Admin can create and delete a gif" do
       click_on "Login"
     end
 
-    click_on "Manage Gifs"
+    click_on "Manage GIFs"
     assert_equal admin_gifs_path, current_path
 
     within("#gif_generator") do

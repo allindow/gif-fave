@@ -34,7 +34,8 @@ describe "A default user can favorite and unfavorite gifs" do
     click_on "Unfavorite"
 
     visit user_favorites_path
+    save_and_open_page
     expect(page).to_not have_css("img[src*=\"#{Gif.first.image_path}\"]")
-    expect(page).to have_content("You haven't favorited any gifs!")
+    expect(page).to have_content("You haven't favorited any Gifs!")
   end
 end
