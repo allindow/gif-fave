@@ -25,11 +25,8 @@ describe "Admin can create and delete a gif" do
   scenario "default user cannot access gif index" do
     admin = User.create(username: "Angela", password: "password", role: 0)
     visit login_path
-    fill_in "Username", with: "Angela"
-    fill_in 'sessions[password]', with: "password"
-    within 'form' do
-      click_on "Login"
-    end
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
     expect(page).to_not have_content("Manage Gifs")
     visit admin_gifs_path
     expect(page).to have_content("The page you were looking for doesn't exist")

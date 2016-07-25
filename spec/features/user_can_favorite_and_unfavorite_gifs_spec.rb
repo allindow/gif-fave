@@ -4,12 +4,7 @@ describe "A default user can favorite and unfavorite gifs" do
   scenario "They can see a favorited gif on their favorites page" do
     Gif.create(image_path: "https://media.giphy.com/media/3o6UBo8U2iHUG5mszS/giphy.gif", category: "puppy")
     user = User.create(username: "Angela", password: "password", role: 0)
-    visit login_path
-    fill_in "Username", with: "Angela"
-    fill_in 'sessions[password]', with: "password"
-    within 'form' do
-      click_on "Login"
-    end
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_gifs_path
     expect(page).to have_css("img[src*=\"#{Gif.first.image_path}\"]")
@@ -34,7 +29,6 @@ describe "A default user can favorite and unfavorite gifs" do
     click_on "Unfavorite"
 
     visit user_favorites_path
-    save_and_open_page
     expect(page).to_not have_css("img[src*=\"#{Gif.first.image_path}\"]")
     expect(page).to have_content("You haven't favorited any Gifs!")
   end
