@@ -17,8 +17,8 @@
           <img src="<%= gif.image_path %>">
         </p>
         <p>
-          <%= link_to "Unfavorite", "/favorite/#{gif.id}", method: :delete, class:'btn' if gif.users.include?(current_user)%>
-          <%= link_to "Favorite", "/new_favorite/#{gif.id}", method: :post, class:'btn' if gif.users.exclude?(current_user) %>
+          <%= link_to "Unfavorite", unfavorite_path(gif), method: :delete, class:'btn' if gif.users.include?(current_user)%>
+          <%= link_to "Favorite", new_favorite_path(gif), method: :post, class:'btn' if gif.users.exclude?(current_user) %>
           <%= facebook_button :facebook=> {:send=> 'true', :url=> "#{gif.image_path}"} %>
         </p>
       <% end %>
